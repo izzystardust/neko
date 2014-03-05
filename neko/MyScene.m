@@ -16,20 +16,20 @@
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-        
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 30;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
-        
-        [self addChild:myLabel];
+        SKSpriteNode *neko = [SKSpriteNode spriteNodeWithImageNamed:@"mati2.xbm"];
+        neko.name = @"neko";
+        neko.position = CGPointMake(200, 300);
+        [self addChild:neko];
     }
     return self;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
+    
+    for (SKSpriteNode *child in self.children) {
+        NSLog(@"%@", child);
+    }
     
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
