@@ -9,10 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
-@interface Character : SKSpriteNode
-
-@end
-
 typedef enum : uint8_t {
     ColliderTypeNeko = 1,
     ColliderTypeWall = 2,
@@ -20,3 +16,23 @@ typedef enum : uint8_t {
     ColliderTypeTrap = 8,
     ColliderTypeExit = 16
 } ColliderType;
+
+typedef enum : uint8_t {
+    BehaviorSleep = 0,
+    BehaviorWalkRight = 1,
+    BehaviorWalkUpRight = 2,
+    BehaviorWalkUp = 3,
+    BehaviorWalkUpLeft = 4,
+    BehaviorWalkLeft = 5,
+    BehaviorWalkDownLeft = 6,
+    BehaviorWalkDown = 7,
+    BehaviorWalkDownRight = 8,
+    BehaviorScratch = 9
+} BehaviorType;
+
+@interface Character : SKSpriteNode
+@property NSMutableArray *animationFrames;
+
+-(void)getAnimationFramesForBehavior:(BehaviorType) behavior;
+@end
+
