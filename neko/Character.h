@@ -33,12 +33,10 @@ typedef enum : uint8_t {
 } DirectionType;
 
 @interface Character : SKSpriteNode
-//@property NSMutableArray *animationFrames;
 @property CGFloat velocity;
 @property BehaviorType state;
 
 -(NSMutableArray *)getAnimationFramesForBehavior:(BehaviorType) behavior direction:(DirectionType)dir;
-//-(void)animateWithFrameTime:(CGFloat) t;
 -(void)moveToPoint:(CGPoint) pt;
 
 @end

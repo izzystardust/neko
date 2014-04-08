@@ -118,8 +118,6 @@
     [self removeAllActions];
     DirectionType dir = [self directionToPoint:pt];
     CGFloat time = [self timeToPoint:pt];
-    //self.animationFrames = [self getAnimationFramesForBehavior:BehaviorWalk direction:dir];
-    //[self animateWithFrameTime:0.2f];
     [self runAction:[SKAction repeatActionForever:
                      [SKAction animateWithTextures:[self getAnimationFramesForBehavior:BehaviorWalk direction:dir]
                                       timePerFrame:0.2f
