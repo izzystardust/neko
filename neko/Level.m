@@ -17,18 +17,19 @@
         
         self.backgroundColor = [SKColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:1.0];
         self.start = 0;
-        
-        SKSpriteNode *neko = [SKSpriteNode spriteNodeWithImageNamed:@"mati2.xbm"];
-        neko.name = @"neko";
+        self.hasWon = NO;
+
+        Character *neko = [[Character alloc] init];
         neko.position = CGPointMake(623, 250);
         neko.zPosition = 100;
-        neko.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:neko.size];
-        neko.physicsBody.categoryBitMask = ColliderTypeNeko;
-        neko.physicsBody.collisionBitMask = ColliderTypeWall | ColliderTypeTrap | ColliderTypeExit;
-        neko.physicsBody.contactTestBitMask = neko.physicsBody.collisionBitMask;
-        neko.physicsBody.dynamic = NO;
-        [self addChild:neko];
+        [neko runAction:[SKAction repeatActionForever:
+                         [SKAction animateWithTextures:[neko getAnimationFramesForBehavior:BehaviorSleep direction:DirectionStop]
+                                          timePerFrame:0.5f
+                                                resize:NO
+                                               restore:YES]]];
         
+        [self addChild:neko];
+        //NSLog(@"Aniframes: %@", neko.animationFrames);
         SKSpriteNode *wall = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0]
                                                           size:CGSizeMake(500, 400)];
         wall.name = @"wall";
@@ -82,38 +83,33 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
-    SKNode *neko = [self childNodeWithName:@"neko"];
+    Character *neko = (Character *)[self childNodeWithName:@"neko"];
     SKNode *toy = [self childNodeWithName:@"toy"];
     SKNode *toy2 = [self childNodeWithName:@"toy2"];
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         NSLog(@"Touch at %f, %f", location.x, location.y);
-        if (CGRectContainsPoint([toy frame], location)) {
-            SKAction *gotoToy = [SKAction moveTo:toy.frame.origin duration:1];
-            [neko runAction:gotoToy];
+//        [neko runAction:[SKAction moveTo:location duration:1]];
+        if (CGRectContainsPoint([toy frame], location) || CGRectContainsPoint([toy2 frame], location)) {
+            [neko moveToPoint:location];
         }
-        if (CGRectContainsPoint([toy2 frame], location)) {
-            SKAction *gotoToy = [SKAction moveTo:toy2.frame.origin duration:1];
-            [neko runAction:gotoToy];
-        }
-        //SKAction *action = [SKAction moveTo:location duration:1];
-        //[neko runAction:action];
     }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
-    if (self.start == 0) {
-        self.start = currentTime;
-    }
-    NSLog(@"start, current: %f, %f", self.start, currentTime);
-    if (currentTime > self.start + .1) {
-        self.shouldWin = YES;
-        [self isExitVisibleToNeko];
-        if (self.shouldWin == YES) {
-            SKNode *exit = [self childNodeWithName:@"exit"];
-            SKAction *gotoexit = [SKAction moveTo:CGPointMake(exit.position.x+1, exit.position.y+1) duration:1];
-            [[self childNodeWithName:@"neko"] runAction:gotoexit];
+    if (!self.hasWon) {
+        if (self.start == 0) {
+            self.start = currentTime;
+        }
+        if (currentTime > self.start + .1) {
+            self.shouldWin = YES;
+            [self isExitVisibleToNeko];
+            if (self.shouldWin == YES) {
+                SKNode *exit = [self childNodeWithName:@"exit"];
+                [(Character *)[self childNodeWithName:@"neko"] moveToPoint:CGPointMake(exit.position.x+1, exit.position.y+1)];
+                self.hasWon = YES;
+            }
         }
     }
     

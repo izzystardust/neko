@@ -19,20 +19,27 @@ typedef enum : uint8_t {
 
 typedef enum : uint8_t {
     BehaviorSleep = 0,
-    BehaviorWalkRight = 1,
-    BehaviorWalkUpRight = 2,
-    BehaviorWalkUp = 3,
-    BehaviorWalkUpLeft = 4,
-    BehaviorWalkLeft = 5,
-    BehaviorWalkDownLeft = 6,
-    BehaviorWalkDown = 7,
-    BehaviorWalkDownRight = 8,
-    BehaviorScratch = 9
+    BehaviorWalk = 1,
+    BehaviorGroom = 2,
+    BehaviorYawn = 3,
 } BehaviorType;
 
-@interface Character : SKSpriteNode
-@property NSMutableArray *animationFrames;
+typedef enum : uint8_t {
+    DirectionStop = 0,
+    DirectionRight = 1 << 0,
+    DirectionUp = 1 << 1,
+    DirectionLeft = 1 << 2,
+    DirectionDown = 1 << 3,
+} DirectionType;
 
--(void)getAnimationFramesForBehavior:(BehaviorType) behavior;
+@interface Character : SKSpriteNode
+//@property NSMutableArray *animationFrames;
+@property CGFloat velocity;
+@property BehaviorType state;
+
+-(NSMutableArray *)getAnimationFramesForBehavior:(BehaviorType) behavior direction:(DirectionType)dir;
+//-(void)animateWithFrameTime:(CGFloat) t;
+-(void)moveToPoint:(CGPoint) pt;
+
 @end
 

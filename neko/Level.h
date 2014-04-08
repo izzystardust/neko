@@ -11,6 +11,7 @@
 
 @interface Level : SKScene
 @property BOOL shouldWin;
+@property BOOL hasWon;
 @property CFTimeInterval start;
 @property Character *neko;
 @end
