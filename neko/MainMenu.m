@@ -12,12 +12,14 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        SKSpriteNode *menu = [SKSpriteNode spriteNodeWithImageNamed:@"NekoMainMenu"];
+        SKLabelNode *title = [SKLabelNode labelNodeWithFontNamed:@"Sniglet-Regular"];
+        title.text = @"neko";
+        title.fontSize = 200;
+        title.fontColor = [UIColor colorWithWhite:0.0 alpha:1.0];
+        title.position = CGPointMake(400, 600);
+        self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:1.0];
         
-        menu.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
-        
-        [self addChild:menu];
+        [self addChild:title];
     }
     return self;
 }
