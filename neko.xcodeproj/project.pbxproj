@@ -10,7 +10,6 @@
 		D64E8A0B18F359C7001C5E6D /* awake.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E89FA18F359C7001C5E6D /* awake.png */; };
 		D64E8A0C18F359C7001C5E6D /* groom.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D64E89FB18F359C7001C5E6D /* groom.atlas */; };
 		D64E8A0D18F359C7001C5E6D /* NekoMainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E89FC18F359C7001C5E6D /* NekoMainMenu.png */; };
-		D64E8A0E18F359C7001C5E6D /* NekoMainMenu.psd in Resources */ = {isa = PBXBuildFile; fileRef = D64E89FD18F359C7001C5E6D /* NekoMainMenu.psd */; };
 		D64E8A0F18F359C7001C5E6D /* NekoMainMenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E89FE18F359C7001C5E6D /* NekoMainMenu@2x.png */; };
 		D64E8A1018F359C7001C5E6D /* sleep.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D64E89FF18F359C7001C5E6D /* sleep.atlas */; };
 		D64E8A1118F359C7001C5E6D /* stopDown.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D64E8A0018F359C7001C5E6D /* stopDown.atlas */; };
@@ -44,6 +43,8 @@
 		D6A3566A18C538AD0083C8D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A3564518C538AD0083C8D3 /* UIKit.framework */; };
 		D6A3567218C538AD0083C8D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6A3567018C538AD0083C8D3 /* InfoPlist.strings */; };
 		D6A3567418C538AD0083C8D3 /* nekoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A3567318C538AD0083C8D3 /* nekoTests.m */; };
+		D6F308FE18F4EED400DABC28 /* level1.json in Resources */ = {isa = PBXBuildFile; fileRef = D6F308FD18F4EED400DABC28 /* level1.json */; };
+		D6F8F34018F4B421001EC30C /* scratch.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D6F8F33F18F4B421001EC30C /* scratch.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +61,6 @@
 		D64E89FA18F359C7001C5E6D /* awake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awake.png; sourceTree = "<group>"; };
 		D64E89FB18F359C7001C5E6D /* groom.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = groom.atlas; sourceTree = "<group>"; };
 		D64E89FC18F359C7001C5E6D /* NekoMainMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NekoMainMenu.png; sourceTree = "<group>"; };
-		D64E89FD18F359C7001C5E6D /* NekoMainMenu.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = NekoMainMenu.psd; sourceTree = "<group>"; };
 		D64E89FE18F359C7001C5E6D /* NekoMainMenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NekoMainMenu@2x.png"; sourceTree = "<group>"; };
 		D64E89FF18F359C7001C5E6D /* sleep.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sleep.atlas; sourceTree = "<group>"; };
 		D64E8A0018F359C7001C5E6D /* stopDown.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = stopDown.atlas; sourceTree = "<group>"; };
@@ -102,6 +102,8 @@
 		D6A3566F18C538AD0083C8D3 /* nekoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "nekoTests-Info.plist"; sourceTree = "<group>"; };
 		D6A3567118C538AD0083C8D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D6A3567318C538AD0083C8D3 /* nekoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nekoTests.m; sourceTree = "<group>"; };
+		D6F308FD18F4EED400DABC28 /* level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level1.json; sourceTree = "<group>"; };
+		D6F8F33F18F4B421001EC30C /* scratch.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = scratch.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +134,10 @@
 		D64E89F918F359C7001C5E6D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D6F8F33F18F4B421001EC30C /* scratch.atlas */,
 				D64E89FA18F359C7001C5E6D /* awake.png */,
 				D64E89FB18F359C7001C5E6D /* groom.atlas */,
 				D64E89FC18F359C7001C5E6D /* NekoMainMenu.png */,
-				D64E89FD18F359C7001C5E6D /* NekoMainMenu.psd */,
 				D64E89FE18F359C7001C5E6D /* NekoMainMenu@2x.png */,
 				D64E89FF18F359C7001C5E6D /* sleep.atlas */,
 				D64E8A0018F359C7001C5E6D /* stopDown.atlas */,
@@ -189,6 +191,7 @@
 		D6A3564918C538AD0083C8D3 /* neko */ = {
 			isa = PBXGroup;
 			children = (
+				D6F308FC18F4EED400DABC28 /* levels */,
 				D64E89F918F359C7001C5E6D /* images */,
 				D6A3565218C538AD0083C8D3 /* AppDelegate.h */,
 				D6A3565318C538AD0083C8D3 /* AppDelegate.m */,
@@ -234,6 +237,14 @@
 				D6A3567018C538AD0083C8D3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D6F308FC18F4EED400DABC28 /* levels */ = {
+			isa = PBXGroup;
+			children = (
+				D6F308FD18F4EED400DABC28 /* level1.json */,
+			);
+			path = levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +328,7 @@
 				D64E8A0B18F359C7001C5E6D /* awake.png in Resources */,
 				D64E8A1318F359C7001C5E6D /* stopRight.atlas in Resources */,
 				D64E8A1F18F4755D001C5E6D /* walkUpRight.atlas in Resources */,
+				D6F8F34018F4B421001EC30C /* scratch.atlas in Resources */,
 				D64E8A1A18F359C7001C5E6D /* walkUp.atlas in Resources */,
 				D64E8A0C18F359C7001C5E6D /* groom.atlas in Resources */,
 				D6A3566118C538AD0083C8D3 /* Images.xcassets in Resources */,
@@ -330,9 +342,9 @@
 				D64E8A1718F359C7001C5E6D /* walkDownRight.atlas in Resources */,
 				D64E8A1018F359C7001C5E6D /* sleep.atlas in Resources */,
 				D6A3565718C538AD0083C8D3 /* Main.storyboard in Resources */,
+				D6F308FE18F4EED400DABC28 /* level1.json in Resources */,
 				D64E8A1818F359C7001C5E6D /* walkLeft.atlas in Resources */,
 				D64E8A1918F359C7001C5E6D /* walkRight.atlas in Resources */,
-				D64E8A0E18F359C7001C5E6D /* NekoMainMenu.psd in Resources */,
 				D64E8A0F18F359C7001C5E6D /* NekoMainMenu@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
