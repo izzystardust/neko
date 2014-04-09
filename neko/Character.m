@@ -14,16 +14,20 @@
 
 @implementation Character
 
--(id) init {
+-(id) initWithName:(NSString *)name {
     self = [super initWithImageNamed:@"mati1.png"];
     //self.animationFrames = [[NSMutableArray alloc] init];
-    self.name = @"neko";
+    self.name = name;
     self.velocity = 200;
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
     self.physicsBody.categoryBitMask = ColliderTypeNeko;
     self.physicsBody.collisionBitMask = ColliderTypeWall | ColliderTypeTrap | ColliderTypeExit;
     self.physicsBody.dynamic = NO;
     return self;
+}
+
+-(id) init {
+    return [self initWithName:@"neko"];
 }
 
 -(NSArray *)getAnimationFramesForBehavior:(BehaviorType)behavior direction:(DirectionType)dir {
