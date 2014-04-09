@@ -25,6 +25,7 @@
 		D64E8A1B18F359C7001C5E6D /* yawn.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D64E8A0A18F359C7001C5E6D /* yawn.atlas */; };
 		D64E8A1E18F4755D001C5E6D /* walkUpLeft.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D64E8A1C18F4755D001C5E6D /* walkUpLeft.atlas */; };
 		D64E8A1F18F4755D001C5E6D /* walkUpRight.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D64E8A1D18F4755D001C5E6D /* walkUpRight.atlas */; };
+		D690D1AC18F5D4EF00DBA678 /* Sniglet Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D690D1AB18F5D4EF00DBA678 /* Sniglet Regular.otf */; };
 		D698CE1518E891DF00A663EF /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D698CE1418E891DF00A663EF /* MainMenu.m */; };
 		D698CE1C18E8991A00A663EF /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = D698CE1B18E8991A00A663EF /* Character.m */; };
 		D6A3564218C538AD0083C8D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A3564118C538AD0083C8D3 /* Foundation.framework */; };
@@ -76,6 +77,7 @@
 		D64E8A0A18F359C7001C5E6D /* yawn.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = yawn.atlas; sourceTree = "<group>"; };
 		D64E8A1C18F4755D001C5E6D /* walkUpLeft.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = walkUpLeft.atlas; sourceTree = "<group>"; };
 		D64E8A1D18F4755D001C5E6D /* walkUpRight.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = walkUpRight.atlas; sourceTree = "<group>"; };
+		D690D1AB18F5D4EF00DBA678 /* Sniglet Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sniglet Regular.otf"; sourceTree = "<group>"; };
 		D698CE1318E891DF00A663EF /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		D698CE1418E891DF00A663EF /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		D698CE1A18E8991A00A663EF /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		D6A3564918C538AD0083C8D3 /* neko */ = {
 			isa = PBXGroup;
 			children = (
+				D690D1AB18F5D4EF00DBA678 /* Sniglet Regular.otf */,
 				D6F308FC18F4EED400DABC28 /* levels */,
 				D64E89F918F359C7001C5E6D /* images */,
 				D6A3565218C538AD0083C8D3 /* AppDelegate.h */,
@@ -325,6 +328,7 @@
 			files = (
 				D64E8A1418F359C7001C5E6D /* stopUp.atlas in Resources */,
 				D6A3564E18C538AD0083C8D3 /* InfoPlist.strings in Resources */,
+				D690D1AC18F5D4EF00DBA678 /* Sniglet Regular.otf in Resources */,
 				D64E8A0B18F359C7001C5E6D /* awake.png in Resources */,
 				D64E8A1318F359C7001C5E6D /* stopRight.atlas in Resources */,
 				D64E8A1F18F4755D001C5E6D /* walkUpRight.atlas in Resources */,
