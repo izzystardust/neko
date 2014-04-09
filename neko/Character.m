@@ -86,7 +86,7 @@
             NSLog(@"Moron. Forgot to implement behavior %d", behavior);
             return nil;
     }
-    int numFrames = animation.textureNames.count;
+    NSUInteger numFrames = animation.textureNames.count;
     //NSLog(@"Number of frames: %d", numFrames);
     for (int i = 0; i < numFrames; ++i) {
         NSString *textureName = [NSString stringWithFormat:@"%@%d", prefix, i+1];
