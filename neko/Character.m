@@ -8,6 +8,8 @@
 
 #import "Character.h"
 #import <math.h>
+#import <stdlib.h>
+
 #define M_PI_8 M_PI_4/2
 
 @implementation Character
@@ -72,6 +74,10 @@
             animation = [SKTextureAtlas atlasNamed:@"yawn"];
             prefix = @"mati";
             break;
+        case BehaviorScratch:
+            animation = [SKTextureAtlas atlasNamed:@"scratch"];
+            prefix = @"kaki";
+            break;
         default:
             NSLog(@"Moron. Forgot to implement behavior %d", behavior);
             return nil;
@@ -87,6 +93,7 @@
 }
 
 -(void) fallAsleep {
+    [self runAction:[SKAction setTexture:[SKTexture textureWithImageNamed:@"mati1.png"]]];
     SKAction *yawn = [SKAction animateWithTextures:[self getAnimationFramesForBehavior:BehaviorYawn direction:DirectionStop]
                                       timePerFrame:1.0f
                                             resize:NO
@@ -96,38 +103,64 @@
                        [SKAction animateWithTextures:
                         [self getAnimationFramesForBehavior:BehaviorSleep
                                                   direction:DirectionStop]
-                                        timePerFrame:0.5f
+                                        timePerFrame:0.3f
                                               resize:NO
                                              restore:YES]];
+    int groomAction = arc4random_uniform(3);
+    SKAction *groom;
+    NSLog(@"Groom action %d", groomAction);
+    if (groomAction == 0) {
+        groom = [SKAction repeatAction:
+                 [SKAction animateWithTextures:
+                  [self getAnimationFramesForBehavior:BehaviorGroom
+                                            direction:DirectionStop]
+                                  timePerFrame:0.2f
+                                        resize:NO
+                                       restore:YES]
+                                 count:3];
+    } else if (groomAction == 1) {
+        groom = [SKAction repeatAction:
+                 [SKAction animateWithTextures:
+                  [self getAnimationFramesForBehavior:BehaviorScratch direction:DirectionStop]
+                                  timePerFrame:0.5f
+                                        resize:NO
+                                       restore:YES]
+                                 count:4];
+    } else {
+        [self removeAllActions];
+        SKAction *setTexture = [SKAction setTexture:[SKTexture textureWithImageNamed:@"mati1.png"]
+                                             resize:NO];
+        SKAction *delay = [SKAction waitForDuration:1.0f];
+        groom = [SKAction sequence:@[setTexture, delay]];
+    }
+    SKAction *seq = [SKAction sequence:@[groom, yawn, sleep]];
     
-    SKAction *groom = [SKAction repeatAction:
-                       [SKAction animateWithTextures:
-                        [self getAnimationFramesForBehavior:BehaviorGroom
-                                                  direction:DirectionStop]
-                                        timePerFrame:0.2f
-                                              resize:NO
-                                             restore:YES]
-                                       count:3];
-    
-    SKAction *todo = [SKAction sequence:@[groom, yawn, sleep]];
-    
-    [self runAction:todo];
+    [self runAction:seq];
 }
 
 -(void) moveToPoint:(CGPoint) pt {
     [self removeAllActions];
     DirectionType dir = [self directionToPoint:pt];
     CGFloat time = [self timeToPoint:pt];
-    [self runAction:[SKAction repeatActionForever:
-                     [SKAction animateWithTextures:[self getAnimationFramesForBehavior:BehaviorWalk direction:dir]
-                                      timePerFrame:0.2f
-                                            resize:NO
-                                           restore:YES]]];
+    SKAction *delay = [SKAction waitForDuration:0.5f];
+    SKAction *wakeUp = [SKAction setTexture:[SKTexture textureWithImageNamed:@"awake.png"]
+                               resize:NO];
+    
+    SKAction *runAnimation = [SKAction repeatActionForever:
+                              [SKAction animateWithTextures:[self getAnimationFramesForBehavior:BehaviorWalk direction:dir]
+                                               timePerFrame:0.2f
+                                                     resize:NO
+                                                    restore:YES]];
     SKAction *move = [SKAction moveTo:pt duration:time];
-    [self runAction:move
-     completion:^{
-         [self fallAsleep];
-     }];
+    SKAction *ms = [SKAction sequence:@[wakeUp, delay]];
+    //SKAction *mg = [SKAction group:@[move, runAnimation]];
+    [self runAction:ms
+         completion:^{
+             [self runAction:runAnimation];
+             [self runAction:move completion:^{
+                 [self fallAsleep];
+             }];
+         }];
 }
 
 -(CGFloat)timeToPoint:(CGPoint)loc {
@@ -177,7 +210,6 @@
         assert(NO);
         dir = DirectionStop;
     }
-    NSLog(@"dir: %d", dir);
     return dir;
 }
 
