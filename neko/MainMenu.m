@@ -8,22 +8,33 @@
 
 #import "MainMenu.h"
 #import "Level.h"
+#import "Character.h"
 
 @implementation MainMenu
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         SKLabelNode *title = [SKLabelNode labelNodeWithFontNamed:@"Sniglet-Regular"];
-        title.text = @"Neko";
+        title.text = @"neko";
         title.fontSize = 200;
         title.fontColor = [UIColor colorWithWhite:0.0 alpha:1.0];
         title.position = CGPointMake(300, 600);
         [self addChild:title];
         
+        Character *neko = [[Character alloc] initWithName:@"neko"];
+        neko.position = CGPointMake(240, 719);
+        [neko runAction:[SKAction repeatActionForever:
+                         [SKAction animateWithTextures:[neko getAnimationFramesForBehavior:BehaviorSleep direction:DirectionStop]
+                                          timePerFrame:1.0f
+                                                resize:NO
+                                               restore:YES]]];
+        neko.zPosition = 100;
+        [self addChild:neko];
+        
         self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:1.0];
         
-        [self addButtonAtPoint:CGPointMake(700, 500) withText:@"Play!" andName:@"play"];
-        [self addButtonAtPoint:CGPointMake(700, 400) withText:@"Credits" andName:@"cred"];
+        [self addButtonAtPoint:CGPointMake(924, 200) withText:@"play!" andName:@"play"];
+        [self addButtonAtPoint:CGPointMake(924, 100) withText:@"credits" andName:@"cred"];
     } else {
         NSLog(@"WTF?!");
     }
@@ -33,7 +44,7 @@
 -(void)addButtonAtPoint:(CGPoint)pt withText:(NSString *)text andName:(NSString *)name {
     SKSpriteNode *bg = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithWhite:0.0
                                                                            alpha:1.0]
-                                                    size:CGSizeMake(175, 70)];
+                                                    size:CGSizeMake(200, 70)];
 
     bg.position = pt;
     bg.name = name;
@@ -56,6 +67,8 @@
         CGPoint loc = [touch locationInNode:self];
         if(CGRectContainsPoint([playButton frame], loc)) {
             SKTransition *transition = [SKTransition doorwayWithDuration:0.5];
+            transition.pausesIncomingScene = NO;
+            transition.pausesOutgoingScene = NO;
             Level *l = [[Level alloc] initWithSize:CGSizeMake(1024, 768)];
             [self.scene.view presentScene:l transition:transition];
         } else if (CGRectContainsPoint([credButton frame], loc)) {
@@ -66,6 +79,10 @@
                                                     otherButtonTitles:nil];
             [credits show];
         }
+        
+        Character *neko = (Character *)[self childNodeWithName:@"neko"];
+        [neko moveToPoint:loc];
+        
     }
 }
 
