@@ -173,6 +173,7 @@
     }
     return 0;
 }
+
 -(DirectionType)directionToPoint:(CGPoint)loc {
     double dx = loc.x - self.position.x;
     double dy = loc.y - self.position.y;

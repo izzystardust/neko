@@ -40,7 +40,7 @@
         wall.position = CGPointMake(CGRectGetMaxX(self.frame)-550, CGRectGetMaxY(self.frame)-550);
         
         SKSpriteNode *toy = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
-                                                         size:CGSizeMake(20, 20)];
+                                                         size:CGSizeMake(40, 40)];
         toy.position = CGPointMake(660, 750);
         toy.name = @"toy";
         toy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toy.size];
@@ -50,7 +50,7 @@
         [self addChild:toy];
         
         SKSpriteNode *toy2 = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
-                                                          size:CGSizeMake(20, 20)];
+                                                          size:CGSizeMake(40, 40)];
         toy2.position = CGPointMake(660, 500);
         toy2.name = @"toy2";
         [self addChild:toy2];
