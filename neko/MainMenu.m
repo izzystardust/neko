@@ -55,9 +55,7 @@
     for (UITouch *touch in touches) {
         CGPoint loc = [touch locationInNode:self];
         if(CGRectContainsPoint([playButton frame], loc)) {
-            NSLog(@"Go play the damn game!");
-            SKTransition *transition = [SKTransition revealWithDirection:SKTransitionDirectionDown
-                                                                duration:0.5];
+            SKTransition *transition = [SKTransition doorwayWithDuration:0.5];
             Level *l = [[Level alloc] initWithSize:CGSizeMake(1024, 768)];
             [self.scene.view presentScene:l transition:transition];
         } else if (CGRectContainsPoint([credButton frame], loc)) {
