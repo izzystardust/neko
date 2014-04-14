@@ -20,7 +20,7 @@
         self.hasWon = NO;
 
         Character *neko = [[Character alloc] init];
-        neko.position = CGPointMake(623, 250);
+        neko.position = CGPointMake(935, 100);
         neko.zPosition = 100;
         [neko runAction:[SKAction repeatActionForever:
                          [SKAction animateWithTextures:[neko getAnimationFramesForBehavior:BehaviorSleep direction:DirectionStop]
@@ -41,7 +41,7 @@
         
         SKSpriteNode *toy = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
                                                          size:CGSizeMake(40, 40)];
-        toy.position = CGPointMake(660, 750);
+        toy.position = CGPointMake(900, 300);
         toy.name = @"toy";
         toy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toy.size];
         toy.physicsBody.dynamic = NO;
@@ -51,13 +51,13 @@
         
         SKSpriteNode *toy2 = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
                                                           size:CGSizeMake(40, 40)];
-        toy2.position = CGPointMake(660, 500);
+        toy2.position = CGPointMake(1000, 550);
         toy2.name = @"toy2";
         [self addChild:toy2];
         
         SKSpriteNode *exit = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0]
                                                           size:CGSizeMake(50, 80)];
-        exit.position = CGPointMake(25, 764);
+        exit.position = CGPointMake(25, 700);
         exit.name = @"exit";
         exit.zPosition = 5;
         [self addChild:exit];
