@@ -39,8 +39,9 @@
         wall.physicsBody.contactTestBitMask = ColliderTypeNeko;
         wall.position = CGPointMake(CGRectGetMaxX(self.frame)-550, CGRectGetMaxY(self.frame)-550);
         
-        SKSpriteNode *toy = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
-                                                         size:CGSizeMake(40, 40)];
+//        SKSpriteNode *toy = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
+//                                                         size:CGSizeMake(40, 40)];
+        SKSpriteNode *toy = [SKSpriteNode spriteNodeWithImageNamed:@"mouse.png"];
         toy.position = CGPointMake(900, 300);
         toy.name = @"toy";
         toy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toy.size];
@@ -49,15 +50,13 @@
         toy.physicsBody.contactTestBitMask = ColliderTypeNeko;
         [self addChild:toy];
         
-        SKSpriteNode *toy2 = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
-                                                          size:CGSizeMake(40, 40)];
+        SKSpriteNode *toy2 = [SKSpriteNode spriteNodeWithImageNamed:@"ball.png"];
         toy2.position = CGPointMake(1000, 550);
         toy2.name = @"toy2";
         [self addChild:toy2];
         
-        SKSpriteNode *exit = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0]
-                                                          size:CGSizeMake(50, 80)];
-        exit.position = CGPointMake(25, 700);
+        SKSpriteNode *exit = [SKSpriteNode spriteNodeWithImageNamed:@"exit.png"];
+        exit.position = CGPointMake(50, 700);
         exit.name = @"exit";
         exit.zPosition = 5;
         [self addChild:exit];

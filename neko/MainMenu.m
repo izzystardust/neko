@@ -33,8 +33,9 @@
         
         self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:1.0];
         
-        [self addButtonAtPoint:CGPointMake(924, 200) withText:@"play!" andName:@"play"];
-        [self addButtonAtPoint:CGPointMake(924, 100) withText:@"credits" andName:@"cred"];
+        [self addButtonAtPoint:CGPointMake(900, 300) withText:@"play!" andName:@"play"];
+        [self addButtonAtPoint:CGPointMake(900, 200) withText:@"tutorial" andName:@"tutorial"];
+        [self addButtonAtPoint:CGPointMake(900, 100) withText:@"credits" andName:@"cred"];
     } else {
         NSLog(@"WTF?!");
     }
@@ -44,7 +45,7 @@
 -(void)addButtonAtPoint:(CGPoint)pt withText:(NSString *)text andName:(NSString *)name {
     SKSpriteNode *bg = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithWhite:0.0
                                                                            alpha:1.0]
-                                                    size:CGSizeMake(200, 70)];
+                                                    size:CGSizeMake(250, 70)];
 
     bg.position = pt;
     bg.name = name;
@@ -73,7 +74,7 @@
             [self.scene.view presentScene:l transition:transition];
         } else if (CGRectContainsPoint([credButton frame], loc)) {
             UIAlertView *credits = [[UIAlertView alloc] initWithTitle:@"Credits"
-                                                              message:@"neko written by Ethan Miller\nneko character and animations public domain\n"
+                                                              message:@"neko written by Ethan Miller\nneko character and animations public domain\n\n\nCuteness Tester: Eric Richter"
                                                              delegate:nil
                                                     cancelButtonTitle:@"Ok"
                                                     otherButtonTitles:nil];

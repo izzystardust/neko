@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D631B4F118FF0FC8000FBB68 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = D631B4EF18FF0FC8000FBB68 /* ball.png */; };
+		D631B4F218FF0FC8000FBB68 /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = D631B4F018FF0FC8000FBB68 /* mouse.png */; };
+		D631B4F418FF1178000FBB68 /* feather.png in Resources */ = {isa = PBXBuildFile; fileRef = D631B4F318FF1178000FBB68 /* feather.png */; };
+		D631B4F618FF151D000FBB68 /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = D631B4F518FF151D000FBB68 /* exit.png */; };
+		D631B4FB18FF1781000FBB68 /* GohuFont-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D631B4F918FF1781000FBB68 /* GohuFont-Bold.ttf */; };
+		D631B4FC18FF1781000FBB68 /* GohuFont-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D631B4FA18FF1781000FBB68 /* GohuFont-Medium.ttf */; };
+		D631B50318FF1CB6000FBB68 /* NormalToy.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B50218FF1CB6000FBB68 /* NormalToy.m */; };
 		D64E8A0B18F359C7001C5E6D /* awake.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E89FA18F359C7001C5E6D /* awake.png */; };
 		D64E8A0C18F359C7001C5E6D /* groom.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D64E89FB18F359C7001C5E6D /* groom.atlas */; };
 		D64E8A0D18F359C7001C5E6D /* NekoMainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = D64E89FC18F359C7001C5E6D /* NekoMainMenu.png */; };
@@ -59,6 +66,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D631B4EF18FF0FC8000FBB68 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		D631B4F018FF0FC8000FBB68 /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
+		D631B4F318FF1178000FBB68 /* feather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feather.png; sourceTree = "<group>"; };
+		D631B4F518FF151D000FBB68 /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit.png; sourceTree = "<group>"; };
+		D631B4F918FF1781000FBB68 /* GohuFont-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GohuFont-Bold.ttf"; sourceTree = "<group>"; };
+		D631B4FA18FF1781000FBB68 /* GohuFont-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GohuFont-Medium.ttf"; sourceTree = "<group>"; };
+		D631B50118FF1CB6000FBB68 /* NormalToy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalToy.h; sourceTree = "<group>"; };
+		D631B50218FF1CB6000FBB68 /* NormalToy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalToy.m; sourceTree = "<group>"; };
+		D631B50418FF1D2C000FBB68 /* Toy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Toy.h; sourceTree = "<group>"; };
 		D64E89FA18F359C7001C5E6D /* awake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awake.png; sourceTree = "<group>"; };
 		D64E89FB18F359C7001C5E6D /* groom.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = groom.atlas; sourceTree = "<group>"; };
 		D64E89FC18F359C7001C5E6D /* NekoMainMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NekoMainMenu.png; sourceTree = "<group>"; };
@@ -133,9 +149,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D631B50018FF1C73000FBB68 /* toys */ = {
+			isa = PBXGroup;
+			children = (
+				D631B50118FF1CB6000FBB68 /* NormalToy.h */,
+				D631B50218FF1CB6000FBB68 /* NormalToy.m */,
+			);
+			name = toys;
+			sourceTree = "<group>";
+		};
 		D64E89F918F359C7001C5E6D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D631B4F518FF151D000FBB68 /* exit.png */,
+				D631B4F318FF1178000FBB68 /* feather.png */,
+				D631B4EF18FF0FC8000FBB68 /* ball.png */,
+				D631B4F018FF0FC8000FBB68 /* mouse.png */,
 				D6F8F33F18F4B421001EC30C /* scratch.atlas */,
 				D64E89FA18F359C7001C5E6D /* awake.png */,
 				D64E89FB18F359C7001C5E6D /* groom.atlas */,
@@ -193,6 +222,8 @@
 		D6A3564918C538AD0083C8D3 /* neko */ = {
 			isa = PBXGroup;
 			children = (
+				D631B4F918FF1781000FBB68 /* GohuFont-Bold.ttf */,
+				D631B4FA18FF1781000FBB68 /* GohuFont-Medium.ttf */,
 				D690D1AB18F5D4EF00DBA678 /* Sniglet Regular.otf */,
 				D6F308FC18F4EED400DABC28 /* levels */,
 				D64E89F918F359C7001C5E6D /* images */,
@@ -205,6 +236,8 @@
 				D6A3565C18C538AD0083C8D3 /* Level.m */,
 				D698CE1A18E8991A00A663EF /* Character.h */,
 				D698CE1B18E8991A00A663EF /* Character.m */,
+				D631B50418FF1D2C000FBB68 /* Toy.h */,
+				D631B50018FF1C73000FBB68 /* toys */,
 				D698CE1318E891DF00A663EF /* MainMenu.h */,
 				D698CE1418E891DF00A663EF /* MainMenu.m */,
 				D6A3566018C538AD0083C8D3 /* Images.xcassets */,
@@ -294,6 +327,7 @@
 		D6A3563618C538AD0083C8D3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Ethan Miller";
 				TargetAttributes = {
@@ -327,9 +361,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D64E8A1418F359C7001C5E6D /* stopUp.atlas in Resources */,
+				D631B4F118FF0FC8000FBB68 /* ball.png in Resources */,
 				D6A3564E18C538AD0083C8D3 /* InfoPlist.strings in Resources */,
 				D690D1AC18F5D4EF00DBA678 /* Sniglet Regular.otf in Resources */,
 				D64E8A0B18F359C7001C5E6D /* awake.png in Resources */,
+				D631B4FB18FF1781000FBB68 /* GohuFont-Bold.ttf in Resources */,
+				D631B4F618FF151D000FBB68 /* exit.png in Resources */,
 				D64E8A1318F359C7001C5E6D /* stopRight.atlas in Resources */,
 				D64E8A1F18F4755D001C5E6D /* walkUpRight.atlas in Resources */,
 				D6F8F34018F4B421001EC30C /* scratch.atlas in Resources */,
@@ -342,6 +379,7 @@
 				D64E8A0D18F359C7001C5E6D /* NekoMainMenu.png in Resources */,
 				D64E8A1118F359C7001C5E6D /* stopDown.atlas in Resources */,
 				D64E8A1218F359C7001C5E6D /* stopLeft.atlas in Resources */,
+				D631B4F218FF0FC8000FBB68 /* mouse.png in Resources */,
 				D64E8A1B18F359C7001C5E6D /* yawn.atlas in Resources */,
 				D64E8A1718F359C7001C5E6D /* walkDownRight.atlas in Resources */,
 				D64E8A1018F359C7001C5E6D /* sleep.atlas in Resources */,
@@ -349,7 +387,9 @@
 				D6F308FE18F4EED400DABC28 /* level1.json in Resources */,
 				D64E8A1818F359C7001C5E6D /* walkLeft.atlas in Resources */,
 				D64E8A1918F359C7001C5E6D /* walkRight.atlas in Resources */,
+				D631B4FC18FF1781000FBB68 /* GohuFont-Medium.ttf in Resources */,
 				D64E8A0F18F359C7001C5E6D /* NekoMainMenu@2x.png in Resources */,
+				D631B4F418FF1178000FBB68 /* feather.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +411,7 @@
 				D698CE1518E891DF00A663EF /* MainMenu.m in Sources */,
 				D6A3565D18C538AD0083C8D3 /* Level.m in Sources */,
 				D6A3565A18C538AD0083C8D3 /* ViewController.m in Sources */,
+				D631B50318FF1CB6000FBB68 /* NormalToy.m in Sources */,
 				D6A3565418C538AD0083C8D3 /* AppDelegate.m in Sources */,
 				D6A3565018C538AD0083C8D3 /* main.m in Sources */,
 				D698CE1C18E8991A00A663EF /* Character.m in Sources */,

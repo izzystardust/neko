@@ -18,7 +18,9 @@
 	<string>APPL</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>GohuFont-Medium.ttf</string>
 		<string>Sniglet Regular.otf</string>
+		<string>GohuFont-Bold.ttf</string>
 	</array>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
