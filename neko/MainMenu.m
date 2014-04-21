@@ -9,6 +9,7 @@
 #import "MainMenu.h"
 #import "Level.h"
 #import "Character.h"
+#import "Tutorial.h"
 
 @implementation MainMenu
 
@@ -64,6 +65,7 @@
     /* Called when a touch begins */
     SKNode *playButton = [self childNodeWithName:@"play"];
     SKNode *credButton = [self childNodeWithName:@"cred"];
+    SKNode *tutoButton = [self childNodeWithName:@"tutorial"];
     for (UITouch *touch in touches) {
         CGPoint loc = [touch locationInNode:self];
         if(CGRectContainsPoint([playButton frame], loc)) {
@@ -79,6 +81,12 @@
                                                     cancelButtonTitle:@"Ok"
                                                     otherButtonTitles:nil];
             [credits show];
+        } else if (CGRectContainsPoint([tutoButton frame], loc)) {
+            SKTransition *transition = [SKTransition doorwayWithDuration:0.5];
+            transition.pausesOutgoingScene = NO;
+            transition.pausesIncomingScene = NO;
+            Tutorial *t = [[Tutorial alloc] initWithSize:CGSizeMake(1024, 768)];
+            [self.scene.view presentScene:t transition:transition];
         }
         
         Character *neko = (Character *)[self childNodeWithName:@"neko"];
