@@ -7,7 +7,7 @@
 //
 
 #import "MainMenu.h"
-#import "Level.h"
+#import "Level1.h"
 #import "Character.h"
 #import "Tutorial.h"
 
@@ -72,7 +72,7 @@
             SKTransition *transition = [SKTransition doorwayWithDuration:0.5];
             transition.pausesIncomingScene = NO;
             transition.pausesOutgoingScene = NO;
-            Level *l = [[Level alloc] initWithSize:CGSizeMake(1024, 768)];
+            Level1 *l = [[Level1 alloc] initWithSize:CGSizeMake(1024, 768)];
             [self.scene.view presentScene:l transition:transition];
         } else if (CGRectContainsPoint([credButton frame], loc)) {
             UIAlertView *credits = [[UIAlertView alloc] initWithTitle:@"Credits"

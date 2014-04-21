@@ -9,9 +9,10 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Character.h"
 
-@interface Level : SKScene
+@interface Level : SKScene <SKPhysicsContactDelegate>
 @property BOOL shouldWin;
 @property BOOL hasWon;
 @property CFTimeInterval start;
 @property Character *neko;
+@property NSMutableSet *toys;
 @end

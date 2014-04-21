@@ -8,64 +8,12 @@
 
 #import "Level.h"
 #import "Character.h"
+#import "Toy.h"
 
 @implementation Level
-
--(id)initWithSize:(CGSize)size {
+- (id) initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
-        
-        self.backgroundColor = [SKColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:1.0];
-        self.start = 0;
-        self.hasWon = NO;
-
-        Character *neko = [[Character alloc] init];
-        neko.position = CGPointMake(935, 100);
-        neko.zPosition = 100;
-        [neko runAction:[SKAction repeatActionForever:
-                         [SKAction animateWithTextures:[neko getAnimationFramesForBehavior:BehaviorSleep direction:DirectionStop]
-                                          timePerFrame:0.5f
-                                                resize:NO
-                                               restore:YES]]];
-        
-        [self addChild:neko];
-        //NSLog(@"Aniframes: %@", neko.animationFrames);
-        SKSpriteNode *wall = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0]
-                                                          size:CGSizeMake(500, 400)];
-        wall.name = @"wall";
-        wall.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wall.size];
-        wall.physicsBody.dynamic = NO;
-        wall.physicsBody.categoryBitMask = ColliderTypeWall;
-        wall.physicsBody.contactTestBitMask = ColliderTypeNeko;
-        wall.position = CGPointMake(CGRectGetMaxX(self.frame)-550, CGRectGetMaxY(self.frame)-550);
-        
-//        SKSpriteNode *toy = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
-//                                                         size:CGSizeMake(40, 40)];
-        SKSpriteNode *toy = [SKSpriteNode spriteNodeWithImageNamed:@"mouse.png"];
-        toy.position = CGPointMake(900, 300);
-        toy.name = @"toy";
-        toy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toy.size];
-        toy.physicsBody.dynamic = NO;
-        toy.physicsBody.categoryBitMask = ColliderTypeExit;
-        toy.physicsBody.contactTestBitMask = ColliderTypeNeko;
-        [self addChild:toy];
-        
-        SKSpriteNode *toy2 = [SKSpriteNode spriteNodeWithImageNamed:@"ball.png"];
-        toy2.position = CGPointMake(1000, 550);
-        toy2.name = @"toy2";
-        [self addChild:toy2];
-        
-        SKSpriteNode *exit = [SKSpriteNode spriteNodeWithImageNamed:@"exit.png"];
-        exit.position = CGPointMake(50, 700);
-        exit.name = @"exit";
-        exit.zPosition = 5;
-        [self addChild:exit];
-
-        NSLog(@"Setting up gravity\n");
-//        self.physicsWorld.gravity = CGVectorMake(0, 0);
-        //self.physicsWorld.contactDelegate = self;
-        
-        [self addChild:wall];
+        self.toys = [[NSMutableSet alloc] init];
     }
     return self;
 }
@@ -83,17 +31,20 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     Character *neko = (Character *)[self childNodeWithName:@"neko"];
-    SKNode *toy = [self childNodeWithName:@"toy"];
-    SKNode *toy2 = [self childNodeWithName:@"toy2"];
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         NSLog(@"Touch at %f, %f", location.x, location.y);
-//        [neko runAction:[SKAction moveTo:location duration:1]];
-        if (CGRectContainsPoint([toy frame], location) || CGRectContainsPoint([toy2 frame], location)) {
-            [neko moveToPoint:location];
+        NSLog(@"Toys: %@", self.toys);
+        for (Toy *toy in self.toys) {
+            if (CGRectContainsPoint([toy frame], location)) {
+                [neko moveToPoint:location];
+                break;
+            }
         }
+        
     }
 }
+
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
