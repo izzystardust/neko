@@ -1,15 +1,13 @@
 //
-//  Toy2.h
+//  Toy.h
 //  neko
 //
-//  Created by Ethan Miller on 4/16/14.
+//  Created by Ethan Miller on 4/21/14.
 //  Copyright (c) 2014 Ethan Miller. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
-@protocol Toy <NSObject>
--(id) initWithName:(NSString *)name andImage:(NSString *)img;
-@property BOOL createsSound;
-@property BOOL interestingIfSeen;
+@interface Toy : SKSpriteNode
+
 @end

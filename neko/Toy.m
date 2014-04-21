@@ -1,5 +1,5 @@
 //
-//  NormalToy.h
+//  Toy.m
 //  neko
 //
 //  Created by Ethan Miller on 4/21/14.
@@ -8,6 +8,6 @@
 
 #import "Toy.h"
 
-@interface NormalToy : Toy
+@implementation Toy
 
 @end
