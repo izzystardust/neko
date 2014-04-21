@@ -7,9 +7,45 @@
 //
 
 #import "Tutorial.h"
+#import "Character.h"
 
 @implementation Tutorial
 
+-(id)initWithSize:(CGSize)size {
+    if (self = [super initWithSize:size]) {
+        SKLabelNode *title = [SKLabelNode labelNodeWithFontNamed:@"Sniglet-Regular"];
+        title.text = @"neko";
+        title.fontSize = 200;
+        title.fontColor = [UIColor colorWithWhite:0.0 alpha:1.0];
+        title.position = CGPointMake(300, 600);
+        [self addChild:title];
+        
+        Character *neko = [[Character alloc] initWithName:@"neko"];
+        neko.position = CGPointMake(240, 719);
+        [neko runAction:[SKAction repeatActionForever:
+                         [SKAction animateWithTextures:[neko getAnimationFramesForBehavior:BehaviorSleep direction:DirectionStop]
+                                          timePerFrame:1.0f
+                                                resize:NO
+                                               restore:YES]]];
+        neko.zPosition = 100;
+        [self addChild:neko];
+        
+        self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:1.0];
+        
+        SKLabelNode *inst = [SKLabelNode labelNodeWithFontNamed:@"Courier-Bold"];
+        inst.text = @"zzzzzzzzz...";
+        inst.fontSize = 32;
+        inst.position = CGPointMake(300, 400);
+        inst.fontColor = [UIColor colorWithWhite:0.0 alpha:1.0];
+        [self addChild:inst];
+        _lines = @[@"Oh! Hi!", @"Are you here to help me?"];
+        [self addButtonAtPoint:CGPointMake(900, 100) withText:@"continue" andName:@"next"];
+        
+    } else {
+        NSLog(@"WTF?!");
+    }
+    return self;
+}
 
 -(void)addButtonAtPoint:(CGPoint)pt withText:(NSString *)text andName:(NSString *)name {
     SKSpriteNode *bg = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithWhite:0.0

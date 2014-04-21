@@ -9,5 +9,5 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface Tutorial : SKScene
-
+@property NSArray *lines;
 @end
