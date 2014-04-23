@@ -7,6 +7,7 @@
 //
 
 #import "Character.h"
+#import "collisionTypes.h"
 #import <math.h>
 #import <stdlib.h>
 
@@ -19,10 +20,11 @@
     //self.animationFrames = [[NSMutableArray alloc] init];
     self.name = name;
     self.velocity = 200;
-    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.categoryBitMask = ColliderTypeNeko;
-    self.physicsBody.collisionBitMask = ColliderTypeWall | ColliderTypeTrap | ColliderTypeExit;
-    self.physicsBody.dynamic = NO;
+    self.physicsBody.collisionBitMask = ColliderTypeWall | ColliderTypeTrap | ColliderTypeExit | ColliderTypeToy;
+    self.physicsBody.dynamic = YES;
+    self.physicsBody.contactTestBitMask = ColliderTypeToy | ColliderTypeWall;
     return self;
 }
 
@@ -112,7 +114,6 @@
                                              restore:YES]];
     int groomAction = arc4random_uniform(3);
     SKAction *groom;
-    NSLog(@"Groom action %d", groomAction);
     if (groomAction == 0) {
         groom = [SKAction repeatAction:
                  [SKAction animateWithTextures:
