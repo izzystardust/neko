@@ -8,6 +8,7 @@
 
 #import "Level1.h"
 #import "NormalToy.h"
+#import "collisionTypes.h"
 
 @implementation Level1
 -(id)initWithSize:(CGSize)size {
@@ -34,7 +35,7 @@
         wall.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:wall.size];
         wall.physicsBody.dynamic = NO;
         wall.physicsBody.categoryBitMask = ColliderTypeWall;
-        wall.physicsBody.contactTestBitMask = ColliderTypeNeko;
+        
         wall.position = CGPointMake(CGRectGetMaxX(self.frame)-550, CGRectGetMaxY(self.frame)-550);
         
         NormalToy *toy = [NormalToy spriteNodeWithImageNamed:@"mouse.png"];
@@ -42,7 +43,7 @@
         toy.name = @"toy";
         toy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toy.size];
         toy.physicsBody.dynamic = NO;
-        toy.physicsBody.categoryBitMask = ColliderTypeExit;
+        toy.physicsBody.categoryBitMask = ColliderTypeToy;
         toy.physicsBody.contactTestBitMask = ColliderTypeNeko;
         [self addChild:toy];
         [self.toys addObject:toy];
