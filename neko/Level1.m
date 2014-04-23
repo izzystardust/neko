@@ -58,10 +58,10 @@
         exit.position = CGPointMake(50, 700);
         exit.name = @"exit";
         exit.zPosition = 5;
+        exit.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:exit.size];
+        exit.physicsBody.dynamic = NO;
+        exit.physicsBody.categoryBitMask = ColliderTypeExit;
         [self addChild:exit];
-        
-        self.physicsWorld.gravity = CGVectorMake(0, 0);
-        self.physicsWorld.contactDelegate = self;
         
         [self addChild:wall];
     }

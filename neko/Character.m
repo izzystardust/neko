@@ -20,11 +20,11 @@
     //self.animationFrames = [[NSMutableArray alloc] init];
     self.name = name;
     self.velocity = 200;
-    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+    self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
     self.physicsBody.categoryBitMask = ColliderTypeNeko;
-    self.physicsBody.collisionBitMask = ColliderTypeWall | ColliderTypeTrap | ColliderTypeExit | ColliderTypeToy;
+    self.physicsBody.collisionBitMask = ColliderTypeWall;
     self.physicsBody.dynamic = YES;
-    self.physicsBody.contactTestBitMask = ColliderTypeToy | ColliderTypeWall;
+    self.physicsBody.contactTestBitMask = ColliderTypeToy | ColliderTypeWall | ColliderTypeExit;
     return self;
 }
 

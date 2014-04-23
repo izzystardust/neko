@@ -21,7 +21,7 @@
 -(BOOL)isExitVisibleToNeko {
     CGPoint rayStart = [self childNodeWithName:@"neko"].position;
     CGPoint rayEnd = [self childNodeWithName:@"exit"].position;
-    //int i = 0;
+    SKNode *exit = [self childNodeWithName:@"exit"];
     [self.physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
         self.shouldWin = NO;
     }];
@@ -65,13 +65,29 @@
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
-    NSLog(@"Shit collided, yo");
-    SKNode *node = contact.bodyA.node;
-    if ([node.name isEqualToString:@"neko"]) {
-        [node removeAllActions];
+    NSLog(@"Bodies collided: %@ and %@", contact.bodyA.node.name,
+          contact.bodyB.node.name);
+    SKNode *a = contact.bodyB.node;
+    SKNode *b = contact.bodyA.node;
+    if ([a.name isEqualToString:@"neko"]) {
+        if ([b.name isEqualToString:@"wall"]) {
+            //[a removeAllActions];
+        }
+        if ([b.name isEqualToString:@"exit"]) {
+            UIAlertView *yay = [[UIAlertView alloc]
+                                initWithTitle:@"Level defeated!"
+                                message:@"You took time (TODO - keep track of time"
+                                delegate:self
+                                cancelButtonTitle:@"Main Menu"
+                                otherButtonTitles:@"Continue", nil];
+            [yay show];
+        }
     }
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    NSLog(@"Dialog dismissed with button %i", buttonIndex);
+}
 
 
 @end
