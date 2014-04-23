@@ -189,6 +189,7 @@
             theta = 3 * M_PI_2;
         } else {
             NSLog(@"moveToPoint: dx: %f dy:%f", dx, dy);
+            return DirectionStop;
         }
     } else {
         theta = atan2(dy, dx);
@@ -212,7 +213,7 @@
     } else if (theta > -3*M_PI_8 && theta <= -M_PI_8) {
         dir = DirectionDown|DirectionRight;
     } else {
-        NSLog(@"Why am I here?");
+        NSLog(@"Why am I here? (%f, %f)", dx, dy);
         assert(NO);
         dir = DirectionStop;
     }
