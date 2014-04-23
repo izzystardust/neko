@@ -9,5 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface Toy : SKSpriteNode
-
+@property BOOL makesSoundWhenTapped;
+@property BOOL distractsWhenSeen;
+@property BOOL removeOnCollision;
 @end
