@@ -10,14 +10,6 @@
 #import <SpriteKit/SpriteKit.h>
 
 typedef enum : uint8_t {
-    ColliderTypeNeko = 1,
-    ColliderTypeWall = 2,
-    ColliderTypeToy = 4,
-    ColliderTypeTrap = 8,
-    ColliderTypeExit = 16
-} ColliderType;
-
-typedef enum : uint8_t {
     BehaviorSleep = 0,
     BehaviorWalk = 1,
     BehaviorGroom = 2,
