@@ -15,6 +15,7 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        self.physicsWorld.gravity = CGVectorMake(0, 0);
         SKLabelNode *title = [SKLabelNode labelNodeWithFontNamed:@"Sniglet-Regular"];
         title.text = @"neko";
         title.fontSize = 200;
