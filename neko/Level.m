@@ -34,7 +34,6 @@
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         NSLog(@"Touch at %f, %f", location.x, location.y);
-        NSLog(@"Toys: %@", self.toys);
         for (Toy *toy in self.toys) {
             if (CGRectContainsPoint([toy frame], location)) {
                 [neko moveToPoint:location];
@@ -71,10 +70,6 @@
     if ([node.name isEqualToString:@"neko"]) {
         [node removeAllActions];
     }
-}
-
--(void)didEndContact:(SKPhysicsContact *)contact {
-    
 }
 
 
