@@ -33,7 +33,7 @@
         
         wall.position = CGPointMake(CGRectGetMaxX(self.frame)-550, CGRectGetMaxY(self.frame)-550);
         
-        NormalToy *toy = [NormalToy spriteNodeWithImageNamed:@"mouse.png"];
+        NormalToy *toy = [[NormalToy alloc] initWithImageNamed:@"mouse.png"];
         toy.position = CGPointMake(900, 300);
         toy.name = @"toy";
         toy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toy.size];
@@ -42,7 +42,7 @@
         [self addChild:toy];
         [self.toys addObject:toy];
         
-        NormalToy *toy2 = [NormalToy spriteNodeWithImageNamed:@"ball.png"];
+        NormalToy *toy2 = [[NormalToy alloc] initWithImageNamed:@"ball.png"];
         toy2.position = CGPointMake(1000, 550);
         toy2.name = @"toy2";
         [self addChild:toy2];
