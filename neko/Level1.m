@@ -13,11 +13,6 @@
 @implementation Level1
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
-        
-        self.backgroundColor = [SKColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:1.0];
-        self.start = 0;
-        self.hasWon = NO;
         
         Character *neko = [[Character alloc] init];
         neko.position = CGPointMake(935, 100);
@@ -44,7 +39,6 @@
         toy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toy.size];
         toy.physicsBody.dynamic = NO;
         toy.physicsBody.categoryBitMask = ColliderTypeToy;
-        toy.physicsBody.contactTestBitMask = ColliderTypeNeko;
         [self addChild:toy];
         [self.toys addObject:toy];
         

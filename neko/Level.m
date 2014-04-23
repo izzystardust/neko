@@ -13,7 +13,12 @@
 @implementation Level
 - (id) initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        self.physicsWorld.gravity = CGVectorMake(0, 0);
+        self.physicsWorld.contactDelegate = self;
         self.toys = [[NSMutableSet alloc] init];
+        self.backgroundColor = [SKColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:1.0];
+        self.start = 0;
+        self.hasWon = NO;
     }
     return self;
 }
@@ -23,7 +28,9 @@
     CGPoint rayEnd = [self childNodeWithName:@"exit"].position;
     SKNode *exit = [self childNodeWithName:@"exit"];
     [self.physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-        self.shouldWin = NO;
+        if (body != exit.physicsBody) {
+            self.canSeeExit = NO;
+        }
     }];
     return YES;
 }
@@ -35,7 +42,7 @@
         CGPoint location = [touch locationInNode:self];
         NSLog(@"Touch at %f, %f", location.x, location.y);
         for (Toy *toy in self.toys) {
-            if (CGRectContainsPoint([toy frame], location)) {
+            if (toy.makesSoundWhenTapped && CGRectContainsPoint([toy frame], location)) {
                 [neko moveToPoint:location];
                 break;
             }
@@ -52,9 +59,9 @@
             self.start = currentTime;
         }
         if (currentTime > self.start + .1) {
-            self.shouldWin = YES;
+            self.canSeeExit = YES;
             [self isExitVisibleToNeko];
-            if (self.shouldWin == YES) {
+            if (self.canSeeExit == YES) {
                 SKNode *exit = [self childNodeWithName:@"exit"];
                 [(Character *)[self childNodeWithName:@"neko"] moveToPoint:CGPointMake(exit.position.x+1, exit.position.y+1)];
                 self.hasWon = YES;
@@ -89,5 +96,24 @@
     NSLog(@"Dialog dismissed with button %i", buttonIndex);
 }
 
+//- (void) addWall:(NSValue *)point, ... {
+//    int s = 4; int i = 0;
+//    CGPoint *pts = malloc(s*sizeof(CGPoint));
+//    va_list args;
+//    va_start(args, point);
+//    for (NSValue *pt = point; pt != nil; pt = va_arg(args, NSValue *)) {
+//        if (i >= s) {
+//            pts = realloc(pts, s = 2*s);
+//        }
+//        pts[i] = [pt CGPointValue];
+//        ++i;
+//    }
+//    
+//    va_end(args);
+//    CGMutablePathRef wallPath = NULL;
+//    CGPathAddLines(wallPath, NULL, pts, i);
+//    SKShapeNode *wall;
+//    free(pts);
+//}
 
 @end
