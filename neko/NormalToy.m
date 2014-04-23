@@ -10,4 +10,13 @@
 
 @implementation NormalToy
 
+- (id) initWithImageNamed:(NSString *)name {
+    if (self = [super initWithImageNamed:name]) {
+        self.makesSoundWhenTapped = YES;
+        self.distractsWhenSeen = NO;
+        self.removeOnCollision = NO;
+    }
+    return self;
+}
+
 @end
