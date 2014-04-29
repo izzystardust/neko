@@ -50,6 +50,7 @@
 		D6A3566A18C538AD0083C8D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A3564518C538AD0083C8D3 /* UIKit.framework */; };
 		D6A3567218C538AD0083C8D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6A3567018C538AD0083C8D3 /* InfoPlist.strings */; };
 		D6A3567418C538AD0083C8D3 /* nekoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A3567318C538AD0083C8D3 /* nekoTests.m */; };
+		D6C64251190EB4DF007F9A62 /* Level2.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C64250190EB4DF007F9A62 /* Level2.m */; };
 		D6DD24BE1905A3360057357A /* Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DD24BD1905A3360057357A /* Tutorial.m */; };
 		D6DD24C11905AC450057357A /* Level1.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DD24C01905AC450057357A /* Level1.m */; };
 		D6DD24C71905AF820057357A /* NormalToy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DD24C61905AF820057357A /* NormalToy.m */; };
@@ -122,6 +123,8 @@
 		D6A3566F18C538AD0083C8D3 /* nekoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "nekoTests-Info.plist"; sourceTree = "<group>"; };
 		D6A3567118C538AD0083C8D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D6A3567318C538AD0083C8D3 /* nekoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nekoTests.m; sourceTree = "<group>"; };
+		D6C6424F190EB4DF007F9A62 /* Level2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level2.h; sourceTree = "<group>"; };
+		D6C64250190EB4DF007F9A62 /* Level2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level2.m; sourceTree = "<group>"; };
 		D6DD24BC1905A3360057357A /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tutorial.h; sourceTree = "<group>"; };
 		D6DD24BD1905A3360057357A /* Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tutorial.m; sourceTree = "<group>"; };
 		D6DD24BF1905AC450057357A /* Level1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level1.h; sourceTree = "<group>"; };
@@ -232,6 +235,8 @@
 		D6A3564918C538AD0083C8D3 /* neko */ = {
 			isa = PBXGroup;
 			children = (
+				D6C6424F190EB4DF007F9A62 /* Level2.h */,
+				D6C64250190EB4DF007F9A62 /* Level2.m */,
 				D668537219083BA500CA8668 /* collisionTypes.h */,
 				D690D1AB18F5D4EF00DBA678 /* Sniglet Regular.otf */,
 				D6F308FC18F4EED400DABC28 /* levels */,
@@ -429,6 +434,7 @@
 				D668537119083A7A00CA8668 /* FeatherToy.m in Sources */,
 				D65672D01905B0FD00022FDE /* Toy.m in Sources */,
 				D6A3565018C538AD0083C8D3 /* main.m in Sources */,
+				D6C64251190EB4DF007F9A62 /* Level2.m in Sources */,
 				D698CE1C18E8991A00A663EF /* Character.m in Sources */,
 				D6DD24C71905AF820057357A /* NormalToy.m in Sources */,
 			);

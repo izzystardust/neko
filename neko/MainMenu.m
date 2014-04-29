@@ -83,7 +83,7 @@
                                                     otherButtonTitles:nil];
             [credits show];
         } else if (CGRectContainsPoint([tutoButton frame], loc)) {
-            SKTransition *transition = [SKTransition fadeWithDuration:0.0];
+            SKTransition *transition = [SKTransition crossFadeWithDuration:0.5];
             transition.pausesOutgoingScene = NO;
             transition.pausesIncomingScene = NO;
             Tutorial *t = [[Tutorial alloc] initWithSize:CGSizeMake(1024, 768)];

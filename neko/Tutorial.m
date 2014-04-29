@@ -14,6 +14,7 @@
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         SKLabelNode *title = [SKLabelNode labelNodeWithFontNamed:@"Sniglet-Regular"];
+        self.physicsWorld.gravity = CGVectorMake(0, 0);
         title.text = @"neko";
         title.fontSize = 200;
         title.fontColor = [UIColor colorWithWhite:0.0 alpha:1.0];
@@ -33,7 +34,7 @@
         self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:1.0];
         
         SKLabelNode *inst = [SKLabelNode labelNodeWithFontNamed:@"Courier-Bold"];
-        inst.text = @"zzzzzzzzz...";
+        inst.text = @"zzzzzzzzz...\nThis will be implemented eventually.";
         inst.fontSize = 32;
         inst.position = CGPointMake(300, 400);
         inst.fontColor = [UIColor colorWithWhite:0.0 alpha:1.0];

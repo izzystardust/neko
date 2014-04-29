@@ -15,7 +15,9 @@
 @property CFTimeInterval start;
 @property Character *neko;
 @property NSMutableSet *toys;
+@property NSString *infoText;
 
 //-(void) addWall:(NSValue *)point, ... NS_REQUIRES_NIL_TERMINATION;
-
+-(void) gotoNextLevel;
+-(void) showInfoText;
 @end

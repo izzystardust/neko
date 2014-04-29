@@ -9,6 +9,7 @@
 #import "Level.h"
 #import "Character.h"
 #import "Toy.h"
+#import "MainMenu.h"
 
 @implementation Level
 - (id) initWithSize:(CGSize)size {
@@ -41,13 +42,14 @@
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         NSLog(@"Touch at %f, %f", location.x, location.y);
-        for (Toy *toy in self.toys) {
-            if (toy.makesSoundWhenTapped && CGRectContainsPoint([toy frame], location)) {
-                [neko moveToPoint:location];
-                break;
+        if (!self.canSeeExit) {
+            for (Toy *toy in self.toys) {
+                if (toy.makesSoundWhenTapped && CGRectContainsPoint([toy frame], location)) {
+                    [neko moveToPoint:location];
+                    break;
+                }
             }
         }
-        
     }
 }
 
@@ -93,27 +95,32 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    NSLog(@"Dialog dismissed with button %i", buttonIndex);
+    if (buttonIndex == 0) {
+        // goto main menu
+        SKTransition *t = [SKTransition doorsCloseHorizontalWithDuration:1.0];
+        t.pausesIncomingScene = NO;
+        t.pausesOutgoingScene = NO;
+        MainMenu *m = [[MainMenu alloc] initWithSize:self.frame.size];
+        [self.scene.view presentScene:m transition:t];
+        return;
+    }
+    if (buttonIndex == 1) {
+        [self gotoNextLevel];
+        return;
+    }
 }
 
-//- (void) addWall:(NSValue *)point, ... {
-//    int s = 4; int i = 0;
-//    CGPoint *pts = malloc(s*sizeof(CGPoint));
-//    va_list args;
-//    va_start(args, point);
-//    for (NSValue *pt = point; pt != nil; pt = va_arg(args, NSValue *)) {
-//        if (i >= s) {
-//            pts = realloc(pts, s = 2*s);
-//        }
-//        pts[i] = [pt CGPointValue];
-//        ++i;
-//    }
-//    
-//    va_end(args);
-//    CGMutablePathRef wallPath = NULL;
-//    CGPathAddLines(wallPath, NULL, pts, i);
-//    SKShapeNode *wall;
-//    free(pts);
-//}
+-(void) gotoNextLevel {
+    
+}
+
+-(void)showInfoText {
+    UIAlertView *info = [[UIAlertView alloc] initWithTitle:nil
+                                                   message:self.infoText
+                                                  delegate:nil
+                                         cancelButtonTitle:@"Okay"
+                                         otherButtonTitles: nil];
+    [info show];
+}
 
 @end

@@ -7,13 +7,14 @@
 //
 
 #import "Level1.h"
+#import "Level2.h"
 #import "NormalToy.h"
 #import "collisionTypes.h"
 
 @implementation Level1
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        
+        self.infoText = @"The mouse makes noise when tapped.";
         Character *neko = [[Character alloc] init];
         neko.position = CGPointMake(935, 100);
         neko.zPosition = 100;
@@ -34,19 +35,10 @@
         wall.position = CGPointMake(CGRectGetMaxX(self.frame)-550, CGRectGetMaxY(self.frame)-550);
         
         NormalToy *toy = [[NormalToy alloc] initWithImageNamed:@"mouse.png"];
-        toy.position = CGPointMake(900, 300);
+        toy.position = CGPointMake(1000, 550);
         toy.name = @"toy";
-        toy.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toy.size];
-        toy.physicsBody.dynamic = NO;
-        toy.physicsBody.categoryBitMask = ColliderTypeToy;
         [self addChild:toy];
         [self.toys addObject:toy];
-        
-        NormalToy *toy2 = [[NormalToy alloc] initWithImageNamed:@"ball.png"];
-        toy2.position = CGPointMake(1000, 550);
-        toy2.name = @"toy2";
-        [self addChild:toy2];
-        [self.toys addObject:toy2];
         
         SKSpriteNode *exit = [SKSpriteNode spriteNodeWithImageNamed:@"exit.png"];
         exit.position = CGPointMake(50, 700);
@@ -58,7 +50,16 @@
         [self addChild:exit];
         
         [self addChild:wall];
+        [self showInfoText];
     }
     return self;
+}
+
+- (void) gotoNextLevel {
+    Level2 *l = [[Level2 alloc] initWithSize:CGSizeMake(1024, 768)];
+    SKTransition *transition = [SKTransition doorwayWithDuration:0.5];
+    transition.pausesIncomingScene = NO;
+    transition.pausesOutgoingScene = NO;
+    [self.scene.view presentScene:l transition:transition];
 }
 @end

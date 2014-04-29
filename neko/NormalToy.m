@@ -7,6 +7,7 @@
 //
 
 #import "NormalToy.h"
+#import "collisionTypes.h"
 
 @implementation NormalToy
 
@@ -15,6 +16,9 @@
         self.makesSoundWhenTapped = YES;
         self.distractsWhenSeen = NO;
         self.removeOnCollision = NO;
+        self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+        self.physicsBody.dynamic = NO;
+        self.physicsBody.categoryBitMask = ColliderTypeToy;
     }
     return self;
 }
